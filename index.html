@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <script src="https://www.moneybutton.com/moneybutton.js"></script>
+  <script type="text/javascript" >var BSCUtils={Queue:function(){this._storage=[]}};BSCUtils.Queue.prototype.enqueue=function(t){this._storage.push(t)},BSCUtils.Queue.prototype.dequeue=function(){var t=this._storage[0];return this._storage.shift(),t},BSCUtils.Queue.prototype.getLength=function(){return this._storage.length},BSCUtils.SelfDrainingQueue=function(t){this._process=t,this._queue=new BSCUtils.Queue,this._draining=!1,this._isAsync="AsyncFunction"==t.constructor.name,this._drainQueue=function(){if(!this._draining){for(this._draining=!0;this._queue.getLength()>0;){var t=this._queue.dequeue();this._process(t)}this._draining=!1}},this._drainQueueAsync=async function(){if(!this._draining){for(this._draining=!0;this._queue.getLength()>0;){var t=this._queue.dequeue();await this._process(t)}this._draining=!1}}},BSCUtils.SelfDrainingQueue.prototype.enqueue=function(t){this._queue.enqueue(t),this._isAsync?this._drainQueueAsync():this._drainQueue()},BSCUtils.SelfDrainingQueue.prototype.isDrained=function(){return!this._draining},BSCUtils.sleep=async function(t){return new Promise(e=>setTimeout(e,t))};var BSCState={socket:null,lastEventId:null,latestTxMatch:null,interval:null};const bitsocket={connect:function(t,e,n){const s=btoa(JSON.stringify(t));var i=new BSCUtils.SelfDrainingQueue(e);function a(t){BSCState.socket=t?new EventSource("https://txo.bitsocket.network/s/"+s,{headers:{"Last-Event-Id":t}}):new EventSource("https://txo.bitsocket.network/s/"+s),BSCState.socket.onmessage=function(t){BSCState.lastEventId=t.lastEventId,d=JSON.parse(t.data),"open"!=d.type&&d.data.forEach(t=>{BSCState.latestTxMatch?i.enqueue(t):BSCState.latestTxMatch=t})}}a(n),BSCState.interval=setInterval(()=>{BSCState.socket.close(),a(BSCState.lastEventId)},36e5)},getLatest:async function(){return new Promise(async t=>{if(BSCState.socket&&BSCState.latestTxMatch)t(BSCState.latestTxMatch);else if(BSCState.socket&&!BSCState.latestTxMatch){for(;!BSCState.latestTxMatch;)await BSCUtils.sleep(200);t(BSCState.latestTxMatch)}else console.log("You need to connect to Bitsocket to use getLatest()"),t(null)})},close:function(){BSCState.socket&&BSCState.socket.close(),BSCState.interval&&clearInterval(BSCState.interval);var t=BSCState.lastEventId;return BSCState={socket:null,lastEventId:null,latestTxMatch:null,interval:null},t}};</script>
+  <script>function convertToHex(str) {
+      var hex = '';
+      for (var i = 0; i < str.length; i++) {
+        hex += '' + str.charCodeAt(i).toString(16);
+      }
+      return hex;
+      
+    }</script>
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="favicon.png" />
+
+
+  <title>metaname</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('flutter_service_worker.js');
+      });
+    }
+  </script>
+  <script src="main.dart.js" type="application/javascript"></script>
+</body>
+
+</html>
