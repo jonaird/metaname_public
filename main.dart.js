@@ -15317,7 +15317,7 @@ E.abq(new Y.Uv(r),r)
 $.a7n=m.a.guF()
 t=2
 return P.ak(P.J6(),$async$J5)
-case 2:P.eZ("version: 0.0.8")
+case 2:P.eZ("version: 0.0.9")
 if($.be==null){m=H.b([],u.kf)
 r=$.I
 q=H.b([],u.kC)
@@ -49178,7 +49178,7 @@ t.d=!t.d},
 $S:1}
 T.x8.prototype={
 I:function(a){var t=null
-return M.bi(t,M.a4a("Rather than providing a public API to query names which are only 50 bytes in length, metaname is also a Nodejs package that uses Planaria APIs that you can easily implement into your backend. If you aren't using Nodejs for your backend, I recommend setting up a Google Cloud Function with a Nodejs environent to create your own personal API endpoint.  \n  \n## Installation \n`npm i --save metaname` \n \n## Usage \n\nmetaname comes with two functions: \n### async getNames(token, paymails) \ngetName gets the *latest* names for each paymail that you specify. \ntoken is your Planaria API token. \npaymails should be an array of paymail strings. The promise will resolve with an array of names in the format:  \n```\n{\n  paymail: aPaymail,\n  name: aName,\n  publicKey: aPubKey\n}\n``` \n\nAll names have been checked against the signature included in the op_return. However, the library doesn't\ncheck if the public key does in fact correspond to the paymail and so the public key is included in case you want to do so. \n \n### getAllNames(token,process(name)) \ngetAllNames calls process on all names from this protocol and then opens a bitsocket to listen for new names. \n \nAnd that's it!\n",!0),C.v,C.m,t,t,590,new V.ag(0,12,0,30),t,500)}}
+return M.bi(t,M.a4a("Rather than providing a public API to query names which are only 50 bytes in length, metaname is also a Nodejs package that uses Planaria APIs that you can easily implement into your backend. If you aren't using Nodejs for your backend, I recommend setting up a Google Cloud Function with a Nodejs environent to create your own personal API endpoint.  \n  \n## Installation \n`npm i --save metaname` \n \n## Usage \n\nmetaname comes with two functions: \n### async getNames(token, paymails) \ngetName gets the *latest* names for each paymail that you specify. \ntoken is your Planaria API token. \npaymails should be an array of paymail strings. The promise will resolve with an array of names in the format:  \n```\n{\n  paymail: aPaymail,\n  name: aName,\n  publicKey: aPubKey\n}\n``` \n\nAll names have been checked against the signature included in the op_return. However, the library doesn't\ncheck if the public key does in fact correspond to the paymail and so the public key is included in case you want to do so. \n \n### getAllNames(token,process(name)) \ngetAllNames calls process on all names from this protocol and then opens a bitsocket to listen for new names. \n \nAnd that's it!\n",!0),C.v,C.m,t,t,t,new V.ag(0,12,0,30),t,500)}}
 V.zK.prototype={
 I:function(a){var t=null
 return M.bi(t,X.CV(new V.OV(),H.b([R.ha(["names"],u.z)],u.vs),u.sf),C.v,t,t,t,t,t,C.wC,t)}}
