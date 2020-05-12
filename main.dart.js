@@ -15319,7 +15319,7 @@ E.abq(new Y.Uv(r),r)
 $.a7n=m.a.guF()
 t=2
 return P.ak(P.J6(),$async$J5)
-case 2:P.f_("version: 0.0.10")
+case 2:P.f_("version: 0.0.11")
 if($.be==null){m=H.b([],u.kf)
 r=$.I
 q=H.b([],u.kC)
@@ -49182,7 +49182,7 @@ t.d=!t.d},
 $S:1}
 T.x8.prototype={
 I:function(a){var t=null
-return new T.ez(!0,t,M.bi(t,M.a4a("Rather than providing a public API to query names which are only 50 bytes in length, metaname is also a Nodejs package that uses Planaria APIs that you can easily implement into your backend. If you aren't using Nodejs for your backend, I recommend setting up a Google Cloud Function with a Nodejs environent to create your own personal API endpoint.  \n  \n## Installation \n`npm i --save metaname` \n \n## Usage \n\nmetaname comes with two functions: \n### async getNames(token, paymails) \ngetName gets the *latest* names for each paymail that you specify. \ntoken is your Planaria API token. \npaymails should be an array of paymail strings. The promise will resolve with an array of names in the format:  \n```\n{\n  paymail: aPaymail,\n  name: aName,\n  publicKey: aPubKey\n}\n``` \n\nAll names have been checked against the signature included in the op_return. However, the library doesn't\ncheck if the public key does in fact correspond to the paymail and so the public key is included in case you want to do so. \n \n### getAllNames(token,process(name)) \ngetAllNames calls process on all names from this protocol and then opens a bitsocket to listen for new names. \n \nAnd that's it!\n",!0),C.v,C.m,t,t,t,new V.ag(0,12,0,30),t,500),t)}}
+return new T.ez(!0,t,M.bi(t,M.a4a("# Metaname Client \nRather than providing a public API endpoint for getting metanames (which are only 50 bytes in length max), metaname is also a Nodejs package that uses Planaria endpoints to get metanames for your backend. If you aren't using Node, consider using a Google Cloud Function or equivalent service to create your own API. \n\n  \n\n## Installation \n \n`npm i --save metaname-client` \n \n## Usage \n \n```\nmetaname = require('metaname-client') \n \nvar token = 'YOUR PLANARIA API TOKEN'\n\n//gets the *latest* names for a list of paymails.  \nmetaname.getNames(token, ['jonathanaird@moneybutton.com'])\n  .then(names=>console.log(names)) \n \nfunction process(name){\n    console.log(name)\n} \n \nfunction callback(){\n    console.log('switched to listen mode')\n}\n\n//will call process on all names in \n//he history of the metaname protocol\n//when finished crawling, it will start \n//listening for new names using bitsocket\nmetaname.getAllNames(token, process, callback) \n```\n \nName objects are returned in the following format. They have been verified against the signature included in the transaction. However, this library does not check whether the public key is the correct one for the corresponding paymail. The public key is included so you can check yourself. \n \n```\n{\n    name: 'Jonathan Aird',\n    paymail: 'jonathanaird@moneybutton.com',\n    publicKey:\n      '032107bc529a107da5ac284bb2a582d8ae559bd5701d80ecb2341c609bb7765c50',\n    txid:\n      '4f44f9079a6bebd11b9f9031fa98a9248d20e1723e62e80af673fbb2130d227e'\n}\n```\n",!0),C.v,C.m,t,t,t,new V.ag(0,12,0,30),t,500),t)}}
 V.zK.prototype={
 I:function(a){var t=null
 return M.bi(t,X.CV(new V.OV(),H.b([R.hb(["names"],u.z)],u.vs),u.sf),C.v,t,t,t,t,t,C.wC,t)}}
